@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Inmueble;
+import Modelo.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,13 +59,19 @@ public class GestionInmuebles {
         return inmueblesConNumHabitaciones;
     }
 
-    public void comprarInmueble(Inmueble inmueble) {
-        // Lógica para comprar un inmueble
+    public void comprarInmueble(Usuario usuario, int idInmueble) {
+        Inmueble inmueble = buscarPorId(idInmueble);
+        if (inmueble != null) {
+            inmueble.setPropietario(usuario);
+            usuario.addInmueble(inmueble);
+        }
     }
 
-    public void alquilarInmueble(Inmueble inmueble) {
-        // Lógica para alquilar un inmueble
+    public void alquilarInmueble(Usuario usuario, int idInmueble) {
+        Inmueble inmueble = buscarPorId(idInmueble);
+        if (inmueble != null) {
+            inmueble.setInquilino(usuario);
+            usuario.addInmuebleAlquilado(inmueble);
+        }
     }
-
-    // Métodos restantes...
 }
