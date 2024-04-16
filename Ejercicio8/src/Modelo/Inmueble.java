@@ -6,6 +6,8 @@ public class Inmueble {
     private String localidad;
     private String calle;
     private int numeroHabitaciones;
+    private Usuario propietario;
+    private Usuario inquilino;
 
     public Inmueble(String localidad, String calle, int numeroHabitaciones) {
         this.localidad = localidad;
@@ -45,13 +47,30 @@ public class Inmueble {
         this.numeroHabitaciones = numeroHabitaciones;
     }
 
+    public Usuario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Usuario propietario) {
+        this.propietario = propietario;
+    }
+
+    public Usuario getInquilino() {
+        return inquilino;
+    }
+
+    public void setInquilino(Usuario inquilino) {
+        this.inquilino = inquilino;
+    }
 
     @Override
     public String toString() {
         return
+                "id=" + id +
                 ", localidad='" + localidad + '\'' +
                 ", calle='" + calle + '\'' +
-                ", numeroHabitaciones=" + numeroHabitaciones
-                ;
+                ", numeroHabitaciones=" + numeroHabitaciones +
+                ", propietario=" + propietario +
+                ", inquilino=" + inquilino;
     }
 }
